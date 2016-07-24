@@ -1,5 +1,5 @@
 # 程序语言问题
-##
+
 Java 内存管理
 Java 编译过程生成什么
 Scala在JVM基础上的原理
@@ -7,9 +7,10 @@ Scala 作为 functional language 的好处
 软copy和硬copy的区别
 QSort怎么写
 
-Tuple和List的区别
+##Tuple和List的区别
 Tuples are fixed size in nature whereas lists are dynamic.
 In other words, a tuple is immutable whereas a list is mutable.
+http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each
 
 
 # 简历项目问题

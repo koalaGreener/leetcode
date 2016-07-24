@@ -5,7 +5,9 @@ Java 编译过程生成什么
 Scala在JVM基础上的原理
 Scala 作为 functional language 的好处
 软copy和硬copy的区别
-QSort怎么写
+
+##QSort怎么写
+http://stackoverflow.com/questions/18262306/quick-sort-with-python
 
 ##Tuple和List的区别
 Tuples are fixed size in nature whereas lists are dynamic.

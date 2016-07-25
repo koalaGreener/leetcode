@@ -16,6 +16,7 @@ http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each
 
 
 # 简历项目问题
+gradient clipping有什么作用
 传统方法如何解决文本分类问题
 word embedding的作用是什么
 word2vec的原理

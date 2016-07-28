@@ -4,7 +4,9 @@ Java 内存管理
 Java 编译过程生成什么
 Scala在JVM基础上的原理
 Scala 作为 functional language 的好处
-软copy和硬copy的区别
+
+##软copy和硬copy的区别
+###软的话等同于快捷方式,硬的话等同于同一个文件,对应的硬盘内同一个node
 
 ##Java Hashmap如何实现 
 ### 数组+链表
@@ -14,7 +16,6 @@ Scala 作为 functional language 的好处
 
 http://yikun.github.io/2015/04/01/Java-HashMap工作原理及实现/
 http://blog.csdn.net/vking_wang/article/details/14166593
-
 
 
 加减乘除如何做开方(如何使用泰勒公式开方)

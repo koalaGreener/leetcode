@@ -6,6 +6,17 @@ Scala在JVM基础上的原理
 Scala 作为 functional language 的好处
 软copy和硬copy的区别
 
+##Java Hashmap如何实现
+##如何做Hash,如何确保不重复
+###先用一个List保存index,index由"hash(key)%len"求得,然后如果index重复的话,就挂靠在随后的linklist,
+
+http://yikun.github.io/2015/04/01/Java-HashMap工作原理及实现/
+http://blog.csdn.net/vking_wang/article/details/14166593
+
+
+
+加减乘除如何做开方(如何使用泰勒公式开方)
+
 ##QSort怎么写
 http://stackoverflow.com/questions/18262306/quick-sort-with-python
 

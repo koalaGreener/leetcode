@@ -7,10 +7,10 @@ Scala 作为 functional language 的好处
 
 ##软copy和硬copy的区别
 ###软的话等同于快捷方式,硬的话等同于同一个文件,对应的硬盘内同一个node
+http://blog.csdn.net/hairetz/article/details/4168296
 
 ##Java Hashmap如何实现 
 ### 数组+链表
-
 ##如何做Hash,如何确保不重复
 ###先用一个List(bucket)保存index,index由"hash(key)%len"求得,然后如果index重复的话,就挂靠在随后的linklist,每一个Entry都是由(key,value)组成,最后找到对应的key和value
 

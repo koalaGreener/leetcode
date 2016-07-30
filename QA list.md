@@ -30,10 +30,7 @@ Tuples are fixed size in nature whereas lists are dynamic.
 In other words, a tuple is immutable whereas a list is mutable.
 http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each
 
-
 # 简历项目问题
-
-
 
 ##Vanishing Gradients是什么,如何解决这个问题
 ###如果一个神经网络有超过1层比如4层的话,bp算法会使得四层学习的速度逐步递减,layer4>layer3>layer2>layer1,这意味着在前面的隐藏层中的神经元学习速度要慢于后面的隐藏层.
@@ -43,7 +40,6 @@ http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each
 ###梯度爆炸就是当上面的w控制在一个非常大的值,同时sigmoid'也非常大,两个的乘积都大于1的时候,就有了梯度爆炸的问题.
 
 ###解决方法:通过对w进行pre-trained可以通过更改w权值来解决Vanishing Gradients,或者更改激活函数从sigmoid换成ReLU,这样ReLU是1/0函数,不会使得传播的时候持续缩小了
-
 ###解决方法:gradient clipping解决了Exploding gradient问题,把每次更新的gradient压缩在clip范围内,就不会无限制的连乘导致偏离了.
 
 https://cs224d.stanford.edu/lecture_notes/LectureNotes4.pdf
@@ -54,19 +50,41 @@ http://www.jianshu.com/p/917f71b06499
 
 http://neuralnetworksanddeeplearning.com/chap5.html
 
+##pre-trained有什么好处
+###神经网络相比于传统ML,从解决凸函数转成解决非凸优化问题,不同的pre-trained方法可以减少落在局部最优区间的可能(解决深层结构相关的优化难题带来希望)
+
+##神经网络如何解决overfitting问题 / layers之间的影响
+### 使用深度结构多层叠加低级特征，以获取高级特征，会得到更好的Generalization。
+
+##神经网络比起SVM, 决策树优于哪里
+###这些利用局部数据做优化的浅层结构基于先验知识（Prior), 即，给定样本(xi,yi),尽可能从数值上做优化，使得训练出来的模型，对于近似的x，输出近似的y。然而一旦输入值做了泛型迁移，比如两种不同的鸟，鸟的颜色有别，且在图像中的比例不一，那么SVM、决策树几乎毫无用处。所以需要通过model来提取出特征,而不是做数值优化.
+
+##梯度下降法的原理,还有什么类似的方法
+###一阶导数（梯度下降）优化法、二阶导数（牛顿法）
+
+http://www.cnblogs.com/neopenx/p/4575527.html
+
+
+##为何W不能全部初始化为(相同的权值)0或者1
+### 这样会导致每个节点都一样对称,无论是正向传播还是反向传播,每个神经元都是对称的,就无法提取出特征,就失去了neural network的作用了
+
+http://blog.csdn.net/u012767526/article/details/51405701
+
+
+##编码之间的影响
+### 在stackoverflow上提问了,
+http://stackoverflow.com/questions/38679431/whats-the-difference-between-text-encoding-when-using-convolution-neural-networ
+
 
 传统方法如何解决文本分类问题
 word embedding的作用是什么
 word2vec的原理
-pre-trained有什么好处
-神经网络如何解决overfitting问题
 word-level和char-level的区别
 不同架构是如何解决文本分类问题(CNN CNN+LSTM RNN)
 LSTM为何能记录长期的记忆
 RNN和LSTM比 LSTM有何优点
-layers之间的影响
-编码之间的影响
-梯度下降法的原理,还有什么类似的方法
+Batch Normalization的作用
+
 bp的原理
 为何bp要求处处可导
 Elastic Net, SVM, Random forest, Gradient boosting区别
@@ -86,3 +104,7 @@ binary feature的原理
 Precision和Recall和F1 score有什么区别,作用是什么
 log-liner model如何生成最后的结果
 Fully connected layer作用是什么
+如何理解神经网络中的非线性的拟合能力?
+
+
+

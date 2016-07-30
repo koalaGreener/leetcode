@@ -18,7 +18,9 @@ http://yikun.github.io/2015/04/01/Java-HashMap工作原理及实现/
 http://blog.csdn.net/vking_wang/article/details/14166593
 
 
-加减乘除如何做开方(如何使用泰勒公式开方)
+##加减乘除如何做开方
+###(如何使用泰勒公式开方)
+
 
 ##QSort怎么写
 http://stackoverflow.com/questions/18262306/quick-sort-with-python
@@ -30,7 +32,29 @@ http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each
 
 
 # 简历项目问题
-gradient clipping有什么作用
+
+
+
+##Vanishing Gradients是什么,如何解决这个问题
+###如果一个神经网络有超过1层比如4层的话,bp算法会使得四层学习的速度逐步递减,layer4>layer3>layer2>layer1,这意味着在前面的隐藏层中的神经元学习速度要慢于后面的隐藏层.
+###BP的本质是对神经元的输出z进行纠正,通过对他求梯度作一个反方向的偏移,这里假设我们Layer1的b要进行反向传播更新权值,那么可以得出公式:"http://neuralnetworksanddeeplearning.com/images/tikz38.png", 这样可以观察到这个等式传播的时候有两个关键点,一个是w权值,一个是sigmoid'(z).sigmoid'(z)是一个max=0.25的正态分布图,所以随着Layers越多显然这个学习的速度就会至少降低75%,所以会产生这个Vanishing Gradients问题.同理,如果这个w权值非常大的话,那么理论上整个乘积也会放大,但是sigmoid'函数里面的z是等于(wx + b),这个数值越大则sigmoid'越靠两边其实数值越小,所以其实最后的学习率通常来讲都是越来越小的.
+
+##Exploding gradient是什么,如何解决这个问题
+###梯度爆炸就是当上面的w控制在一个非常大的值,同时sigmoid'也非常大,两个的乘积都大于1的时候,就有了梯度爆炸的问题.
+
+###解决方法:通过对w进行pre-trained可以通过更改w权值来解决Vanishing Gradients,或者更改激活函数从sigmoid换成ReLU,这样ReLU是1/0函数,不会使得传播的时候持续缩小了
+
+###解决方法:gradient clipping解决了Exploding gradient问题,把每次更新的gradient压缩在clip范围内,就不会无限制的连乘导致偏离了.
+
+https://cs224d.stanford.edu/lecture_notes/LectureNotes4.pdf
+http://www.jianshu.com/p/917f71b06499
+
+##是因为BP训练才产生Exploding gradient和Vanishing Gradients的问题吗
+### 应该是的,因为BP训练的过程才得到了上面的等式,才有了这么一系列推论.
+
+http://neuralnetworksanddeeplearning.com/chap5.html
+
+
 传统方法如何解决文本分类问题
 word embedding的作用是什么
 word2vec的原理
@@ -61,3 +85,4 @@ regularization有哪些 L0 L1 L2分别是什么
 binary feature的原理
 Precision和Recall和F1 score有什么区别,作用是什么
 log-liner model如何生成最后的结果
+Fully connected layer作用是什么

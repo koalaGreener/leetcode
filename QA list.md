@@ -60,7 +60,7 @@ http://neuralnetworksanddeeplearning.com/chap5.html
 ###这些利用局部数据做优化的浅层结构基于先验知识（Prior), 即，给定样本(xi,yi),尽可能从数值上做优化，使得训练出来的模型，对于近似的x，输出近似的y。然而一旦输入值做了泛型迁移，比如两种不同的鸟，鸟的颜色有别，且在图像中的比例不一，那么SVM、决策树几乎毫无用处。所以需要通过model来提取出特征,而不是做数值优化.
 
 ##梯度下降法的原理,还有什么类似的方法
-###一阶导数（梯度下降）优化法、二阶导数（牛顿法）
+###一阶导数（梯度下降）优化法、二阶导数（牛顿法）,后者不受坐标系影响,理论上就是不用做feature scaling也能直接求了吧.
 
 http://www.cnblogs.com/neopenx/p/4575527.html
 
@@ -76,16 +76,35 @@ http://blog.csdn.net/u012767526/article/details/51405701
 http://stackoverflow.com/questions/38679431/whats-the-difference-between-text-encoding-when-using-convolution-neural-networ
 
 
+##Batch Normalization的作用 / 为什么对数据进行标准化
+###BN主要是对卷积之后的数据进行统一的scale,本来每一层的learning rate应该是不一样的,但是现在统一scale之后可以更好的使用大的lr了,另外也解决了之前的sigmoid带来的gradient vanishing问题,但是要注意的是其中两个参数gamma,beta是防止一直使用sigmoid中间那一段接近线性的部分.另外BN可以解决overfitting问题,以前的dropout或者l2都可以减低或者干脆去掉.如果只有4个象限的话,大部分数据可能会只落在第一象限,这样w和b要经过多次的训练才能找到dataset中,同时有可能在边上就overfitting了,通过z-score normalization或者BN可以使得数据更加分散开,这样有利于初始化w和b更快的找到合适的分割点.
+
+http://blog.csdn.net/happynear/article/details/44238541
+
+##对数据进行标准化/归一化(feature scaling)有什么方法,有什么帮助?
+###常用Z-score,先求均值,再求方差,最后映射到均值=0 方差=1 的区间内.能把目标函数从比较扁转化成比较圆(假设只有两个特征),容易收敛.同时scale一样了,learning rate可以用同样的,比较大的数值,增加的效率,这个和BN是一个道理. 另外一些loss function要求Euclidean distance,不做归一化的话就会被某些特别大数值的特征给影响的太大了.模型是否具有伸缩不变性也是一个核心的问题,比如SVM需要,logistic regression可选(即前面分析的目标函数从扁拉回来).
+
+https://www.zhihu.com/question/30038463
+http://www.zhaokv.com/2016/01/normalization-and-standardization.html
+
+##bp的原理
+### gradient descent + chain rules吧 (复合函数的链式法则)
+
+https://www.zhihu.com/question/27239198?rf=24827633
+https://zhuanlan.zhihu.com/p/21407711?refer=intelligentunit
+
+
+
+
+
 传统方法如何解决文本分类问题
 word embedding的作用是什么
 word2vec的原理
-word-level和char-level的区别
 不同架构是如何解决文本分类问题(CNN CNN+LSTM RNN)
 LSTM为何能记录长期的记忆
 RNN和LSTM比 LSTM有何优点
-Batch Normalization的作用
+word-level和char-level的区别
 
-bp的原理
 为何bp要求处处可导
 Elastic Net, SVM, Random forest, Gradient boosting区别
 Terrier Genism LSA算法分别对数据进行了怎样的处理
@@ -93,8 +112,7 @@ Mapreduce伪代码应该怎么写
 如何对垃圾邮件数据进行预处理,预处理一般有什么办法
 逻辑回归为什么要用sigmoid函数
 逻辑回归的loss function是什么
-对数据进行标准化有什么方法
-为什么对数据进行标准化
+
 逻辑回归如何更新他们的parameters
 LR如何解决overfitting问题
 regularization有哪些 L0 L1 L2分别是什么

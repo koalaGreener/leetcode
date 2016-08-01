@@ -99,12 +99,12 @@ https://zhuanlan.zhihu.com/p/21407711?refer=intelligentunit
 https://www.zhihu.com/question/32275069
 
 ##embedding layer的作用是什么
-### 降低dim + fixed size 统一了输入model的input
+### 降低dim (Dimensionality reduction) + fixed size 统一了输入model的input
 
 https://www.zhihu.com/question/48688908
 
 ##Fully connected layer作用是什么
-### 特殊形式的卷积层,kernal size = input length,把多个feature组合起来提取更高维度的组合特征.
+### 特殊形式的卷积层,kernal size = input length,把多个feature组合起来提取更高维度的组合特征.如果前面是a,b,c,d...feature的话, FC layers应该是指a&b,b&c这样的feature,至于最后的output layer则是激活函数是softmax从而分类到比如说10类.
 
 ##为何bp要求处处可导
 ### 反向传播的时候需要求导,但是似乎有不能求导的点,可以用旁边的导数或者说恰好遇到的概率比较低.另外ReLU这种似乎是分成了软饱和/硬饱和激活函数.
@@ -113,16 +113,32 @@ http://chuansong.me/n/472464751936
 
 ## Sigmoid,Tanh,ReLU之间的对比,ReLU和dropout的对比
 ### Sigmoid, Tanh出现概率的时候必用
-### ReLU能解决梯度消失问题,但是注意要clip来防止梯度爆炸问题.同时带来的稀疏性使得他也具有了非线性表达的能力. 另外从前到后,W的解空间不断减少,有助于训练加快
+### ReLU能解决梯度消失问题,但是注意要clip来防止梯度爆炸问题.同时带来的稀疏性使得他也具有了非线性表达的能力. 另外这三个激活函数从前到后,W的解空间不断减少,有助于训练加快
 ### ReLU如果输入0,输出也是0,可以维持输入的稀疏.dropout更像是L2规范化,通过打压w来进行的.
 
 https://www.zhihu.com/question/41841299
 http://chuansong.me/n/472464751936
 
 
-##如何理解神经网络中的非线性的拟合能力
-###都是线性函数的话,model就直接退化成线性分类器了
+##如何理解神经网络中的非线性的拟合能力  /  感知器算法的原理
+###都是线性函数的话,model就直接退化成线性分类器了.比如最后输出函数是sigmoid的话,前面就等同于sigmoid(w2w1x1 + w2b1 + b2),相当于一个线性回归+sigmoid = logistic regression,也就是一个线性分类器LDA了. 如果都是线性激活函数的话,相当于model只有input layer和output layer,这时候就是感知器算法了.
 https://www.zhihu.com/question/30165798
+
+
+## Precision和Recall和F1 score有什么区别,作用是什么
+
+
+##regularization有哪些 L0 L1 L2分别是什么
+### L2 (Ridge regression) L1 (Lasso) and L1+L2 ElasticNet.
+
+http://blog.csdn.net/zouxy09/article/details/24971995
+
+## LR如何解决overfitting问题
+
+http://blog.csdn.net/u012162613/article/details/44261657
+
+
+
 
 
 传统方法如何解决文本分类问题
@@ -136,14 +152,8 @@ Mapreduce伪代码应该怎么写
 如何对垃圾邮件数据进行预处理,预处理一般有什么办法
 逻辑回归为什么要用sigmoid函数
 逻辑回归的loss function是什么
-
 逻辑回归如何更新他们的parameters
-LR如何解决overfitting问题
-regularization有哪些 L0 L1 L2分别是什么
-
-感知器算法的原理
 binary feature的原理
-Precision和Recall和F1 score有什么区别,作用是什么
 log-liner model如何生成最后的结果
 
 

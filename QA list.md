@@ -93,13 +93,19 @@ http://www.zhaokv.com/2016/01/normalization-and-standardization.html
 https://www.zhihu.com/question/27239198?rf=24827633
 https://zhuanlan.zhihu.com/p/21407711?refer=intelligentunit
 
+##word embedding的作用是什么 / word2vec的原理
+### 把word映射到一个向量空间,其中相近意义的word会在这个空间内更加相近.
 
+https://www.zhihu.com/question/32275069
+
+##embedding layer的作用是什么
+### 降低dim + fixed size 统一了输入model的input
+
+https://www.zhihu.com/question/48688908
 
 
 
 传统方法如何解决文本分类问题
-word embedding的作用是什么
-word2vec的原理
 不同架构是如何解决文本分类问题(CNN CNN+LSTM RNN)
 LSTM为何能记录长期的记忆
 RNN和LSTM比 LSTM有何优点

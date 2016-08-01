@@ -103,6 +103,26 @@ https://www.zhihu.com/question/32275069
 
 https://www.zhihu.com/question/48688908
 
+##Fully connected layer作用是什么
+### 特殊形式的卷积层,kernal size = input length,把多个feature组合起来提取更高维度的组合特征.
+
+##为何bp要求处处可导
+### 反向传播的时候需要求导,但是似乎有不能求导的点,可以用旁边的导数或者说恰好遇到的概率比较低.另外ReLU这种似乎是分成了软饱和/硬饱和激活函数.
+
+http://chuansong.me/n/472464751936
+
+## Sigmoid,Tanh,ReLU之间的对比,ReLU和dropout的对比
+### Sigmoid, Tanh出现概率的时候必用
+### ReLU能解决梯度消失问题,但是注意要clip来防止梯度爆炸问题.同时带来的稀疏性使得他也具有了非线性表达的能力. 另外从前到后,W的解空间不断减少,有助于训练加快
+### ReLU如果输入0,输出也是0,可以维持输入的稀疏.dropout更像是L2规范化,通过打压w来进行的.
+
+https://www.zhihu.com/question/41841299
+http://chuansong.me/n/472464751936
+
+
+##如何理解神经网络中的非线性的拟合能力
+###都是线性函数的话,model就直接退化成线性分类器了
+https://www.zhihu.com/question/30165798
 
 
 传统方法如何解决文本分类问题
@@ -110,8 +130,6 @@ https://www.zhihu.com/question/48688908
 LSTM为何能记录长期的记忆
 RNN和LSTM比 LSTM有何优点
 word-level和char-level的区别
-
-为何bp要求处处可导
 Elastic Net, SVM, Random forest, Gradient boosting区别
 Terrier Genism LSA算法分别对数据进行了怎样的处理
 Mapreduce伪代码应该怎么写
@@ -122,13 +140,11 @@ Mapreduce伪代码应该怎么写
 逻辑回归如何更新他们的parameters
 LR如何解决overfitting问题
 regularization有哪些 L0 L1 L2分别是什么
-各个project数据量有多少
+
 感知器算法的原理
 binary feature的原理
 Precision和Recall和F1 score有什么区别,作用是什么
 log-liner model如何生成最后的结果
-Fully connected layer作用是什么
-如何理解神经网络中的非线性的拟合能力?
 
 
 

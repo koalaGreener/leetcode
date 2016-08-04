@@ -30,6 +30,10 @@ Tuples are fixed size in nature whereas lists are dynamic.
 In other words, a tuple is immutable whereas a list is mutable.
 http://stackoverflow.com/questions/1708510/python-list-vs-tuple-when-to-use-each
 
+##常见排序算法的稳定性分析和结论 
+http://www.oschina.net/question/565065_86352
+
+
 # 简历项目问题
 
 ##Vanishing Gradients是什么,如何解决这个问题
